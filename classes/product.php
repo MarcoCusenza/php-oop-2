@@ -14,4 +14,8 @@ class Product
     $this->price = $_price;
     $this->availability = $_availability;
   }
+
+  function getFullName(){
+    return "$this->brand" . "$this->model";
+  }
 }

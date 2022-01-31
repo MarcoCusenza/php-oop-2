@@ -15,16 +15,13 @@ class UserPremium extends user
     $today = new DateTime("now");
     $start = new DateTime($this->startDate);
     $interval = $start->diff($today);
-    var_dump($this->name."'s Premium Level = " . $interval->y);
     return $interval->y;
   }
 
   public function getDiscount($lvl){
     if($lvl >= 5) {
-      var_dump($this->name . "'s Discount = 50%");
       return 50;
     }
-    var_dump($this->name . "'s Discount = " . $lvl * 10 . "%");
     return $lvl*10;
   }
 }
