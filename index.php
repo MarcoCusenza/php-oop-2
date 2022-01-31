@@ -3,7 +3,6 @@ require_once __DIR__ . '/classes/User.php';
 require_once __DIR__ . '/classes/UserPremium.php';
 require_once __DIR__ . '/classes/Product.php';
 require_once __DIR__ . '/classes/CreditCard.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -40,10 +39,12 @@ require_once __DIR__ . '/classes/CreditCard.php';
       var_dump($user03);
 
       echo ("<br><h3>Frodo Livello Premium</h3>");
-      $user03_lvl = $user03->getLevel();
+      echo ("<h5>(Il livello Premium è determinato dagli anni di iscrizione al piano Premium)</h5>");      $user03_lvl = $user03->getLevel();
       var_dump($user03->getName() . "'s Premium Level = " . $user03_lvl);
 
       echo ("<br><h3>Frodo Sconto</h3>");
+      echo ("<h5>(Per ogni anno di abbonamento Premium lo sconto aumenta del 10%. Sconto massimo: 50%)</h5>");
+      $user03_lvl = $user03->getLevel();
       $user03_discount = $user03->getDiscount($user03_lvl);
       var_dump($user03->getName() . "'s Discount = " . $user03_discount . "%");
 

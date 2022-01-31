@@ -2,7 +2,7 @@
 
 class UserPremium extends user
 {
-  protected $startDate; //YYYY-MM-DD
+  protected $startDate;
 
   public function __construct($_name, $_surname, $_email, $_address, $_phone, $_startDate)
   {
@@ -18,7 +18,7 @@ class UserPremium extends user
     return $interval->y;
   }
 
-  public function getDiscount($lvl){
+  public function getDiscount($lvl){//Per ogni anno di abbonamento Premium lo sconto aumenta del 10%. Sconto massimo: 50%
     if($lvl >= 5) {
       return 50;
     }
