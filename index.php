@@ -47,13 +47,29 @@ require_once __DIR__ . '/classes/CreditCard.php';
       $user03_discount = $user03->getDiscount($user03_lvl);
       var_dump($user03->getName() . "'s Discount = " . $user03_discount . "%");
 
-      echo ("<br><h3>CartaCredito</h3>");
+      echo ("<br><h3>CartaCredito1 (Valida)</h3>");
       $creditCard01 = new CreditCard("Frodo Baggins", "0000111122223333", 123, "2024-03");
       var_dump($creditCard01);
 
-      echo("<br><h3>Frodo + CartaCredito</h3>");
-      $user03->insertCreditCard($creditCard01);
-      var_dump($user03);
+      echo ("<br><h3>Frodo + CartaCredito1 Valida</h3>");
+      try {
+        $user03->insertCreditCard($creditCard01);
+        var_dump($user03);
+      } catch (Exception $e) {
+        echo "<h5 class='alert'>Errore: {$e->getMessage()}</h5>";
+      }
+
+      echo ("<br><h3>CartaCredito2 (SCADUTA)</h3>");
+      $creditCard02 = new CreditCard("Aragorn Grampasso", "0000111122223333", 321, "2020-03");
+      var_dump($creditCard02);
+
+      echo ("<br><h3>Aragorn + CartaCredito2 SCADUTA</h3>");
+      try {
+        $user02->insertCreditCard($creditCard02);
+        var_dump($user02);
+      } catch (Exception $e) {
+        echo "<h4 class='alert'>Errore: {$e->getMessage()}</h4>";
+      }
       ?>
     </div>
   </div>

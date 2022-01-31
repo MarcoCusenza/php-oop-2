@@ -16,9 +16,11 @@ class CreditCard
 
   function isValid()
   {
-    $today = date("today");
-    var_dump($today);
+    $today = date("Y-m");
     $end = date($this->expiry);
-    var_dump($end);
+    if ($today > $end) {
+      return false;
+    }
+    return true;
   }
 }

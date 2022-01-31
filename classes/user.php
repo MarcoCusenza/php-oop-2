@@ -37,6 +37,9 @@ class User
 
   function insertCreditCard($card)
   {
+    if(!$card->isValid()){
+      throw new Exception("La carta di credito che stai provando a registrare nel tuo account è scaduta. Operazione NON riuscita.");
+    }
     $this->creditCard = $card;
   }
 }
